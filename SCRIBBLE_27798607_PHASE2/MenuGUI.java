@@ -36,11 +36,17 @@ public class MenuGUI extends JPanel
         //options
         options.setAlignmentX(CENTER_ALIGNMENT);    
         add(options);
+       
         add(Box.createVerticalStrut(50));
         //exit
         exit.setAlignmentX(CENTER_ALIGNMENT);
         add(exit);
-        
+        exit.addActionListener(new AbstractAction() {
+                @Override
+                public void actionPerformed(ActionEvent e){
+                    System.exit(0);
+                }
+            });
         add(Box.createVerticalGlue());
 
         try{

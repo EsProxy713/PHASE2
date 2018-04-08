@@ -12,40 +12,30 @@ import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.AbstractAction;
+import javax.swing.BoxLayout;
 public class tCore extends JFrame
 {   
     public tCore () 
     {
-        JPanel panel = new JPanel();
         setTitle("Scribble");
-
         setSize(1200,900);
         setResizable(false);
 
         MenuGUI menu = new MenuGUI();
         OptionsGUI options = new OptionsGUI();
+        
         add(menu);
         menu.getOptions().addActionListener(new AbstractAction() {
                 @Override
                 public void actionPerformed(ActionEvent e){
-                    panel.removeAll(); 
-                    panel.revalidate();
-                    panel.paintImmediately(0,0,1200,900);
-                    add(options);
+                    getContentPane().remove(menu);
+                    //panel.revalidate();
+                    //panel.paintImmediately(0,0,1200,900);
+                    getContentPane().add(options);
+                    invalidate();
+                    validate();
                 }
             });
-        menu.getExit().addActionListener(new AbstractAction() {
-                @Override
-                public void actionPerformed(ActionEvent e){
-                    System.exit(0);
-                }
-            });
-
-        //panel.setBackground(java.awt.Color.DARK_GRAY);
-        // customButton play = new customButton("Play");
-        // panel.add(play);`
-        //add(panel);
-
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
@@ -53,8 +43,6 @@ public class tCore extends JFrame
 
     public static void main (String [] args)
     {
-        //on launch
-
         new tCore();
 
         //menu.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
@@ -64,8 +52,8 @@ public class tCore extends JFrame
         //just to link screens for now
         //         PlayGUI play = new PlayGUI();
         //         play.setVisible( false );
-       // OptionsGUI options = new OptionsGUI();
-       // options.setVisible( false );
+        // OptionsGUI options = new OptionsGUI();
+        // options.setVisible( false );
         //         ExitGUI exit = new ExitGUI();
         //         exit.setVisible( false );
         //         SoundGUI sound = new SoundGUI();
