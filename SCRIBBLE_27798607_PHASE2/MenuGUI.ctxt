@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=
+comment0.target=MenuGUI()
+comment1.params=g
+comment1.target=void\ paintComponent(java.awt.Graphics)
+comment2.params=
+comment2.target=customButton\ getPlay()
+comment3.params=
+comment3.target=customButton\ getExit()
+comment4.params=
+comment4.target=customButton\ getOptions()
+numComments=5
